@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/pocket-calculator/static/css/main.629e0edd.css",
+    "main.js": "/pocket-calculator/static/js/main.19f72872.js",
+    "static/js/787.04793139.chunk.js": "/pocket-calculator/static/js/787.04793139.chunk.js",
+    "index.html": "/pocket-calculator/index.html",
+    "main.629e0edd.css.map": "/pocket-calculator/static/css/main.629e0edd.css.map",
+    "main.19f72872.js.map": "/pocket-calculator/static/js/main.19f72872.js.map",
+    "787.04793139.chunk.js.map": "/pocket-calculator/static/js/787.04793139.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.629e0edd.css",
+    "static/js/main.19f72872.js"
+  ]
+}
