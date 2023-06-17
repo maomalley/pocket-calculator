@@ -60,9 +60,13 @@ class Calculator extends React.Component {
     }
 
     pressedOperator(operator){
-        this.setState({firstNum: parseFloat(this.state.total)});
-        this.setState({total:"0"});
-        this.setState({operation:operator});
+        if (operator === "-" && this.state.total === "0" && !this.state.total.includes("-")){
+                this.setState({total: "-"});
+        } else {
+            this.setState({firstNum: parseFloat(this.state.total)});
+            this.setState({total: "0"});
+            this.setState({operation: operator});
+        }
         // setFirstNum(parseFloat(total));
         // setTotal("0");
         // setOperation(operator);
@@ -74,6 +78,65 @@ class Calculator extends React.Component {
         if(!this.state.total.includes(".")){
             this.setState({total: this.state.total + "."});
             // setTotal(total + ".");
+        }
+    }
+    handleKeyEvent(e){
+        switch(e.key){
+            case "a":
+                this.clear();
+                break;
+            case "c":
+                this.clear();
+                break;
+            case "0":
+                this.zero();
+                break;
+            case "1":
+                this.pressedNumKey(1);
+                break;
+            case "2":
+                this.pressedNumKey(2);
+                break;
+            case "3":
+                this.pressedNumKey(3);
+                break;
+            case "4":
+                this.pressedNumKey(4);
+                break;
+            case "5":
+                this.pressedNumKey(5);
+                break;
+            case "6":
+                this.pressedNumKey(6);
+                break;
+            case "7":
+                this.pressedNumKey(7);
+                break;
+            case "8":
+                this.pressedNumKey(8);
+                break;
+            case "9":
+                this.pressedNumKey(9);
+                break;
+            case "+":
+                this.pressedOperator("+");
+                break;
+            case "/":
+                this.pressedOperator("/");
+                break;
+            case "*":
+                this.pressedOperator("*");
+                break;
+            case "-":
+                this.pressedOperator("-");
+                break;
+            case ".":
+                this.decimal();
+                break;
+            case "=":
+                this.compute();
+                break;
+            default: break;
         }
     }
 //TODO: missing second num
@@ -110,7 +173,7 @@ class Calculator extends React.Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="App" onKeyDown={(e) => this.handleKeyEvent(e)}>
                 <div className="calculator">
                     <div id="display">{ this.state.total }</div>
                     <div id="buttons">
